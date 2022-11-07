@@ -1,0 +1,223 @@
+/* 
+============
+Variables
+============
+*/
+:root {
+  --primaryColor: #f15025;
+  --mainBlack: #222;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --darkGrey: #afafaf;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.2rem;
+}
+/* 
+============
+Global Styles
+============
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Fira Code", monospace;
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 1.25rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  margin-bottom: 0;
+}
+p {
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 2;
+}
+/* button */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  border: 3px solid var(--primaryColor);
+  color: var(--primaryColor);
+  margin: 3rem;
+  transition: var(--mainTransition);
+}
+.btn:hover {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+
+/* 
+============
+main-navbar
+============
+*/
+.main-navbar {
+  background: var(--darkGrey);
+  padding: 0.2rem;
+}
+.main-navbar li {
+  list-style: none;
+}
+.main-navbar a {
+  text-transform: capitalize;
+  display: block;
+  padding: 1rem 0;
+  color: var(--primaryColor);
+  letter-spacing: var(--mainSpacing);
+}
+.main-navbar a:hover {
+  color: var(--mainBlack);
+}
+
+@media (min-width: 992px) {
+  .main-navbar ul {
+    max-width: 1170px;
+    margin: 0 auto;
+    background-color: var(--mainWhite);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .main-navbar a {
+    text-align: center;
+  }
+}
+
+/* 
+============
+Hero
+============
+*/
+
+.hero-header {
+  min-height: 100vh;
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.hero-banner {
+}
+
+.hero-banner p {
+  width: 80%;
+  max-width: 560px;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .hero-banner {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-header {
+    background: linear-gradient(rgba(241, 80, 37, 0.75), rgba(0, 0, 0, 0.75)),
+      url(./images/image-2.jpeg) center/cover fixed no-repeat;
+  }
+}
+
+/* 
+============
+cards
+============
+*/
+
+.title {
+  text-align: center;
+}
+.cards {
+  padding: 4rem 0;
+}
+.cards-center {
+  width: 80vw;
+  max-width: 1170px;
+  margin: 2rem auto;
+}
+.card {
+  border: 1px solid var(--darkGrey);
+  margin-bottom: 3rem;
+}
+.card-info {
+  padding: 1rem;
+}
+
+.card-footer {
+  background-color: var(--darkGrey);
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.card-footer span {
+  color: var(--primaryColor);
+}
+
+/* @media (min-width: 768px) {
+  .cards-center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    
+  }
+}
+
+@media (min-width: 1170px) {
+  .cards-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} */
+
+/* Grid----three column layout NO@media() ----
+(1) max-width divided by number of columns [2col,3,col,4col]
+ (2) sum the number of gap between columns
+ (3) minus number of gap from step 1  */
+/* calculating the gap without media queries */
+/* 1rem is 16px -2rem is 32px- 2gaps -total 64px  */
+/* max-width=1170px - 64px gap within columns and divide by number of columns   1170px-64px % 3cols*/
+
+/* calculating the gap without media queries */
+/* 1rem is 16px -2rem is 32px- 2gaps -total 64px  */
+/* max-width=1170px - 64px gap within columns and divide by number of columns   1170px-64px % 3cols*/
+
+.cards-center {
+  display: grid;
+  gap: 2rem;
+  /* grid-template-columns: repeat(auto-fill, minmax(368px, 1fr)); */
+  /* three column-layout */
+
+  /* 4 column layout */
+  grid-template-columns: repeat(auto-fill, minmax(268.5px, 1fr));
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
